@@ -43,14 +43,14 @@ class ModelTrainer:
 
             models = {
                 "Random Forest": RandomForestRegressor(),
-                "Decission Tree": DecisionTreeRegressor(),
-                "Gardient Boosting": GradientBoostingRegressor(),
+                "Decision Tree": DecisionTreeRegressor(),
+                "Gradient Boosting": GradientBoostingRegressor(),
                 "Linear Regression": LinearRegression(),
                 "XGBRegressor": XGBRegressor(),
-                "CatBoost Regressor": CatBoostRegressor(verbose= False),
-                "AdaBoost Regressor": AdaBoostRegressor()
-                    }
-            '''
+                "CatBoosting Regressor": CatBoostRegressor(verbose=False),
+                "AdaBoost Regressor": AdaBoostRegressor(),
+                }
+            
             params={
                 "Decision Tree": {
                     'criterion':['squared_error', 'friedman_mse', 'absolute_error', 'poisson'],
@@ -88,10 +88,10 @@ class ModelTrainer:
                 }
                 
             }
-            '''
+            
             
             models_report:dict=evaluate_model(X_train = X_train, y_train = y_train, X_test= X_test, 
-                                              y_test=y_test, models= models)
+                                              y_test=y_test, models= models, params= params)
             
             
             # To get the best model score from dict
