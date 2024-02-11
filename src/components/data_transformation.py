@@ -15,7 +15,7 @@ import os
 
 @dataclass
 class DataTransformationConfig:
-    preprocessor_obj_file_path = os.path.join('artifacts', 'prepocessor.pkl')
+    preprocessor_obj_file_path = os.path.join('artifacts', 'preprocessor.pkl')
 
 
 class DataTransformation:
@@ -27,13 +27,13 @@ class DataTransformation:
         This is function is responsible for data transformation based on the data types
         '''
         try:
-            numerical_columns = ['reading score','writing score']
+            numerical_columns = ['reading_score','writing_score']
             categorical_columns = [
                 'gender',
-                'race/ethnicity',
-                'parental level of education',
+                'race_ethnicity',
+                'parental_level_of_education',
                 'lunch',
-                'test preparation course'
+                'test_preparation_course'
             ]
 
             num_pipeline = Pipeline(
@@ -78,9 +78,9 @@ class DataTransformation:
 
             preprocessing_obj = self.get_data_transformer_object()
 
-            target_column_name = "math score"
+            target_column_name = "math_score"
 
-            numerical_columns = ['reading score','writing score']   
+            numerical_columns = ['reading_score','writing_score']   
 
             input_feature_train_df = train_df.drop(columns=[target_column_name], axis=1)
             target_feature_train_df = train_df[target_column_name]
